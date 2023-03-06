@@ -22,7 +22,13 @@ bool Connection::connect(std::string ip, unsigned short port,
 	// 连接数据库
 	MYSQL *p = mysql_real_connect(_conn, ip.c_str(), username.c_str(),
 		password.c_str(), dbname.c_str(), port, nullptr, 0);
-	return p != nullptr;
+	
+	if (p == nullptr)
+	{
+		LOG("连接数据库失败！");
+		return false;
+	}
+	return true;
 }
 
 bool Connection::update(std::string sql)
