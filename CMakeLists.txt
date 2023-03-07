@@ -13,7 +13,7 @@ aux_source_directory(. SRC_LIST)
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR})
 
 # 指定由哪些文件生成可执行文件
-add_executable(main ${SRC_LIST})
+add_executable(test ${SRC_LIST})
 
-target_link_libraries(main mysqlclient pthread dl)
+target_link_libraries(test mysqlclient pthread dl)
 
